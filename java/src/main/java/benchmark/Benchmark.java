@@ -12,6 +12,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Benchmarks the evaluation methods. Iterates through every single possible hand (n choose k where k is the amount of cards
+ * being evaluated) and prints to stdout. This reads from a default properties file to retrieve the settings.
+ * When ran you can enter the file through command line args to use different properties than the default ones. Setting
+ * threads=0 results in using Runtime#getAvailableProcessors for threads.
+ */
 public class Benchmark{
 
   private static final Path DEFAULT_CONFIG = Path.of("src", "main", "resources", "default_bench.properties");

@@ -8,27 +8,49 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
+/**
+ * Allows processing of large numbers of evaluations concurrently.
+ */
 public class BatchEvaluator{
 
+  /**
+   * @param nThreads <= 0 results in Runtime#availableProcessors as your thread amount. Otherwise the amount of threads
+   *                 in the thread pool
+   */
   public BatchEvaluator(int nThreads){
-    if(nThreads == 0){
+    if(nThreads <= 0){
       nThreads = Runtime.getRuntime().availableProcessors();
     }
     this.nThreads = nThreads;
     executor = Executors.newFixedThreadPool(nThreads);
   }
 
+  public BatchEvaluator(){
+    this(0);
+  }
+
   private final int nThreads;
 
   private final ExecutorService executor;
 
+  /**
+   * Submits an batch to be processed. This will automatically break it into a larger amount of mini-batches based off the
+   * number of threads. This function returns the input list and maintains the order of elements. Hangs until the entire
+   * batch is completed.
+   *
+   * @param inputs List of batch elements
+   * @return The same list of batch elements, with their result field populated
+   */
   public List<BatchElement> submitBatch(List<BatchElement> inputs){
     int nBatches = nThreads;
-    var batches = reduce(inputs, nBatches, Evaluation.defaultFn());
+    var batches = reduce(inputs, nBatches);
     System.out.println("Beginning processing of " + inputs.size() + " inputs.");
 
-    CompletionService<?> completionService = new ExecutorCompletionService<>(executor);
+    CompletionService<BatchEvaluator> completionService = new ExecutorCompletionService<>(executor);
     var futures = batches.stream().map(r -> completionService.submit(r, null)).collect(Collectors.toList());
+    for(Runnable r : batches){
+      completionService.submit(r, this);
+    }
 
     for(int i = 0; i < futures.size(); i++){
       try{
@@ -43,17 +65,22 @@ public class BatchEvaluator{
     return inputs;
   }
 
-  private List<Runnable> reduce(List<BatchElement> inputs, int nBatches, Evaluation evalFunc){
+  public void close(){
+    executor.shutdown();
+  }
+
+  private List<Runnable> reduce(List<BatchElement> inputs, int nBatches){
     int batchSize = inputs.size() / nBatches;
     List<Runnable> batches = new ArrayList<>(nBatches);
 
     for(int i = 0; i < nBatches; i++){
-      int lowerBound = i * batchSize;
-      int upperBound = (i + 1) * batchSize;
+      final int lowerBound = i * batchSize;
+      final int upperBound = (i + 1) * batchSize;
 
       Runnable batch = () -> {
         for(int j = lowerBound; j < upperBound; j++){
-          evalFunc.evaluate(inputs.get(j));
+          int res = Evaluator.evaluate(inputs.get(j).inputs);
+          inputs.get(j).setResult(res);
         }
       };
 
@@ -61,14 +88,6 @@ public class BatchEvaluator{
     }
 
     return batches;
-  }
-
-  interface Evaluation{
-    void evaluate(BatchElement element);
-
-    static Evaluation defaultFn(){
-      return e -> e.setResult(Evaluator.evaluate(e.inputs));
-    }
   }
 
 }

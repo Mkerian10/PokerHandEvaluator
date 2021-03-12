@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
@@ -16,8 +15,6 @@ public class EvaluatorTest{
 
   private static List<IdTestInputBean> readFile(String fileNumber) throws IOException{
     var path = Path.of("../", "test", fileNumber, "id_input_tests.csv");
-    String data = Files.readString(path);
-    String[] lines = data.split("\n");
 
     var beans = new CsvToBeanBuilder<IdTestInputBean>(new FileReader(path.toFile())).withType(IdTestInputBean.class);
     return beans.build().parse();

@@ -38,6 +38,7 @@ class HashTable{
       return arr;
 
     }catch(IOException e){
+      System.err.println(e.getMessage());
       throw new RuntimeException(e); //TODO make this suck less
     }
   }
