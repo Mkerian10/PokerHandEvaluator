@@ -1,5 +1,5 @@
-from evaluator.dptables import DP
-from evaluator.dptables import CHOOSE
+from main.phevaluator.dptables import DP
+from main.phevaluator.dptables import CHOOSE
 
 def hash_quinary(q, length, k):
   sum_numb = 0

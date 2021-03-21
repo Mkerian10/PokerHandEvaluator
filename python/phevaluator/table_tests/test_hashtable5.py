@@ -1,7 +1,7 @@
 import unittest
 
-from evaluator.hash import hash_quinary
-from evaluator.hashtable5 import *
+from main.phevaluator.hash import hash_quinary
+from main.phevaluator.hashtable5 import *
 
 
 class TestNoFlush5Table(unittest.TestCase):

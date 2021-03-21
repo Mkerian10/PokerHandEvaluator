@@ -82,7 +82,7 @@ assert(rank1 < rank2); // rank2 is stronger
 ```
 
 We can also get its rank in all 7562 possible hands. This ranking is
-identical to the return value of the Cactus Kev's evaluator:
+identical to the return value of the Cactus Kev's main.phevaluator:
 the best rank has value 1, which is a Royal Straight Flush, while the
 worst rank is 7462.
 

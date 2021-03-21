@@ -32,6 +32,9 @@ build/
 captures/
 output.json
 
+.ipr
+.iws
+
 #NDK
 obj/
 .externalNativeBuild

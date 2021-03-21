@@ -9,7 +9,7 @@ all: libpheval.a
 libpheval.a: src/evaluator5.c.o src/hashtable5.c.o \
              src/evaluator6.c.o src/hashtable6.c.o \
              src/evaluator7.c.o src/hashtable7.c.o \
-             src/hash.c.o src/hashtable.c.o src/dptables.c.o src/evaluator.cc.o src/hand.cc.o \
+             src/hash.c.o src/hashtable.c.o src/dptables.c.o src/main.phevaluator.cc.o src/hand.cc.o \
              src/rank.c.o src/7462.c.o
 	ar rcs $@ $^
 

@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ``` 
 
 
-There are 1000 random examples tested for each type of hand (5 cards, 6 cards, and 7 cards). The examples are stored in json files the tests folder and were generated with the original C++ evaluator.
+There are 1000 random examples tested for each type of hand (5 cards, 6 cards, and 7 cards). The examples are stored in json files the tests folder and were generated with the original C++ main.phevaluator.
 
 
 To run the unit test:
@@ -30,7 +30,7 @@ python3 -m table_tests.test_hashtable7
 ```
 
 ## Using the library
-The main function is the `evaluate_cards` function in `phevaluator/evaluator/evaluator.py`.
+The main function is the `evaluate_cards` function in `phevaluator/main.phevaluator/main.phevaluator.py`.
 
 The function can take both numbers and card strings (with format like: 'Ah' or '2C'). Usage examples can be seen in `examples.py`.
 

@@ -121,7 +121,7 @@ the problem.
 <a name="chapter2"></a>
 ## Chapter 2: Evaluate the Flushes First
 
-What makes a poker evaluator complicated, is the Flush category (including the
+What makes a poker main.phevaluator complicated, is the Flush category (including the
 Straight Flush). If we don't care about the Flush, we can ignore the suits, and
 simplify the 52-bit binary to a 13-bit quinary (base 5 number). The reason we
 need base 5, is that for each rank, there can be 0, 1, 2, 3, 4 numbers of cards,

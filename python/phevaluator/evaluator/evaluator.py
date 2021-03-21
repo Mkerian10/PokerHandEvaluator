@@ -1,7 +1,7 @@
-from evaluator.evaluator5 import evaluate_5cards
-from evaluator.evaluator6 import evaluate_6cards
-from evaluator.evaluator7 import evaluate_7cards
-from evaluator.evaluator_omaha import evaluate_omaha_cards
+from main.phevaluator.evaluator5 import evaluate_5cards
+from main.phevaluator.evaluator6 import evaluate_6cards
+from main.phevaluator.evaluator7 import evaluate_7cards
+from main.phevaluator.evaluator_omaha import evaluate_omaha_cards
 
 rank_map = {
     '2': 0,
