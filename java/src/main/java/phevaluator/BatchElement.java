@@ -1,4 +1,4 @@
-package evaluator;
+package phevaluator;
 
 /**
  * A single operation in a batch. BatchId is mostly not needed but can be used as a method of keeping every element
@@ -14,7 +14,7 @@ public class BatchElement{
   private final int batchId;
 
   /**
-   * Inputs into our evaluator
+   * Inputs into our phevaluator
    */
   public final int[] inputs;
 

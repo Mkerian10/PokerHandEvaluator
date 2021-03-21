@@ -1,4 +1,4 @@
-package evaluator;
+package phevaluator;
 
 public class Evaluator{
 
