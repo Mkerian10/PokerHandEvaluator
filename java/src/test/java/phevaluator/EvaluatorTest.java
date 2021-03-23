@@ -1,4 +1,4 @@
-package evaluator;
+package phevaluator;
 
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.junit.Test;

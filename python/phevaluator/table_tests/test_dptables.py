@@ -1,7 +1,7 @@
 import unittest
 from itertools import combinations_with_replacement
 
-from evaluator.dptables import *
+from main.phevaluator.dptables import *
 
 
 class TestSuitsTable(unittest.TestCase):

@@ -1,9 +1,9 @@
-from evaluator.dptables import SUITS
-from evaluator.hashtable import FLUSH
-from evaluator.hashtable_omaha import NO_FLUSH_OMAHA
-from evaluator.hashtable_omaha import FLUSH_OMAHA
-from evaluator.hash import hash_quinary
-from evaluator.hash import hash_binary
+from main.phevaluator.dptables import SUITS
+from main.phevaluator.hashtable import FLUSH
+from main.phevaluator.hashtable_omaha import NO_FLUSH_OMAHA
+from main.phevaluator.hashtable_omaha import FLUSH_OMAHA
+from main.phevaluator.hash import hash_quinary
+from main.phevaluator.hash import hash_binary
 
 binaries_by_id = [
   0x1,  0x1,  0x1,  0x1,

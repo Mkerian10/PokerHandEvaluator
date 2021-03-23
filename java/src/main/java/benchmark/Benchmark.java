@@ -1,6 +1,6 @@
 package benchmark;
 
-import evaluator.Evaluator;
+import phevaluator.Evaluator;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

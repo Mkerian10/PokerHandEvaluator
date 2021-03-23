@@ -1,5 +1,5 @@
-from evaluator.evaluator5 import evaluate_5cards
-from evaluator.evaluator import evaluate_cards
+from main.phevaluator.evaluator5 import evaluate_5cards
+from main.phevaluator.main.phevaluator import evaluate_cards
 
 import time
 
@@ -32,7 +32,7 @@ def evaluate_all_seven_card_hands():
               for g in range(f+1, 52):
                 evaluate_cards(a, b, c, d, e, f, g)
 
-def benchmark():
+def main.benchmark():
   print('--------------------------------------------------------------------')
   print('Benchmark                              Time')
   t = time.process_time()
@@ -46,4 +46,4 @@ def benchmark():
   print('evaluate_all_seven_card_hands           ', time.process_time() - t)
 
 if __name__ == "__main__":
-    benchmark()
+    main.benchmark()

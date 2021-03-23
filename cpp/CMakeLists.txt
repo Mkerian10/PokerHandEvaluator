@@ -64,7 +64,7 @@ add_subdirectory(
 # Add the PokerHandEvaluator library
 add_library(pheval STATIC
   src/dptables.c
-  src/evaluator.cc
+  src/main.phevaluator.cc
   src/evaluator5.c
   src/evaluator6.c
   src/evaluator7.c
@@ -107,10 +107,10 @@ target_link_libraries(unit_tests gtest_main pheval phevalomaha)
 add_test(NAME unit_tests COMMAND unit_tests)
 
 add_executable(benchmark_phevaluator
-  benchmark/benchmark.cc
+  main.benchmark/main.benchmark.cc
 )
 target_compile_options(benchmark_phevaluator PUBLIC -O3)
-target_link_libraries(benchmark_phevaluator benchmark pheval phevalomaha)
+target_link_libraries(benchmark_phevaluator main.benchmark pheval phevalomaha)
 
 add_executable(c_example
   examples/c_example.c

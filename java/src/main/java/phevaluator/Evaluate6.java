@@ -1,8 +1,8 @@
-package evaluator;
+package phevaluator;
 
-class Evaluate7{
+class Evaluate6{
 
-  static int evaluate7Cards(int a, int b, int c, int d, int e, int f, int g){
+  static int evaluate6Cards(int a, int b, int c, int d, int e, int f){
     int suitHash = 0;
 
     suitHash += Evaluator.SUITBIT_BY_ID[a];
@@ -11,7 +11,6 @@ class Evaluate7{
     suitHash += Evaluator.SUITBIT_BY_ID[d];
     suitHash += Evaluator.SUITBIT_BY_ID[e];
     suitHash += Evaluator.SUITBIT_BY_ID[f];
-    suitHash += Evaluator.SUITBIT_BY_ID[g];
 
     if(DPTables.SUITS[suitHash] != 0){
 
@@ -23,11 +22,11 @@ class Evaluate7{
       suitBinary[d & 0x3] |= Evaluator.BINARIES_BY_ID[d];
       suitBinary[e & 0x3] |= Evaluator.BINARIES_BY_ID[e];
       suitBinary[f & 0x3] |= Evaluator.BINARIES_BY_ID[f];
-      suitBinary[g & 0x3] |= Evaluator.BINARIES_BY_ID[g];
 
       int z = DPTables.SUITS[suitHash] - 1;
 
       return HashTable.FLUSH()[suitBinary[z]];
+
     }
 
     byte[] quinary = new byte[13];
@@ -38,11 +37,10 @@ class Evaluate7{
     quinary[d >> 2]++;
     quinary[e >> 2]++;
     quinary[f >> 2]++;
-    quinary[g >> 2]++;
 
-    final int hash = Hash.hashQuinary(quinary, 7);
+    final int hash = Hash.hashQuinary(quinary, 6);
 
-    return HashTable.NO_FLUSH_7()[hash];
+    return HashTable.NO_FLUSH_6()[hash];
   }
 
 }

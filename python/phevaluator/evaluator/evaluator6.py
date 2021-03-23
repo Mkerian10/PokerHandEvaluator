@@ -1,7 +1,7 @@
-from evaluator.dptables import SUITS
-from evaluator.hashtable import FLUSH
-from evaluator.hashtable6 import NO_FLUSH_6
-from evaluator.hash import hash_quinary
+from main.phevaluator.dptables import SUITS
+from main.phevaluator.hashtable import FLUSH
+from main.phevaluator.hashtable6 import NO_FLUSH_6
+from main.phevaluator.hash import hash_quinary
 
 binaries_by_id = [
   0x1,  0x1,  0x1,  0x1,

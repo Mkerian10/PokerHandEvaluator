@@ -1,4 +1,4 @@
-from evaluator.evaluator import evaluate_cards
+from main.phevaluator.main.phevaluator import evaluate_cards
 
 
 def example1():
